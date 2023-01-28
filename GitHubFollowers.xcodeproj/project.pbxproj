@@ -15,6 +15,7 @@
 		680C494B29840657009238B8 /* FavoriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C494A29840657009238B8 /* FavoriteListVC.swift */; };
 		680C494D29844026009238B8 /* GHFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C494C29844025009238B8 /* GHFButton.swift */; };
 		680C494F298445EA009238B8 /* GHFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C494E298445E9009238B8 /* GHFTextField.swift */; };
+		680C495129855FFE009238B8 /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C495029855FFE009238B8 /* FollowersListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		680C494A29840657009238B8 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
 		680C494C29844025009238B8 /* GHFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFButton.swift; sourceTree = "<group>"; };
 		680C494E298445E9009238B8 /* GHFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTextField.swift; sourceTree = "<group>"; };
+		680C495029855FFE009238B8 /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				680C49342983FBDB009238B8 /* AppDelegate.swift */,
 				680C494A29840657009238B8 /* FavoriteListVC.swift */,
+				680C495029855FFE009238B8 /* FollowersListVC.swift */,
 				680C494C29844025009238B8 /* GHFButton.swift */,
 				680C494E298445E9009238B8 /* GHFTextField.swift */,
 				680C4948298405FE009238B8 /* SearchVC.swift */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				680C494B29840657009238B8 /* FavoriteListVC.swift in Sources */,
+				680C495129855FFE009238B8 /* FollowersListVC.swift in Sources */,
 				680C4949298405FE009238B8 /* SearchVC.swift in Sources */,
 				680C49352983FBDB009238B8 /* AppDelegate.swift in Sources */,
 				680C494D29844026009238B8 /* GHFButton.swift in Sources */,

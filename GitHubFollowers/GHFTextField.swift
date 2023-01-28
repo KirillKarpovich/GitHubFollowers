@@ -32,6 +32,9 @@ class GHFTextField: UITextField {
         adjustsFontSizeToFitWidth = true
         minimumFontSize = 12
         
+        keyboardType = .default
+        returnKeyType = .go
+        
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
         placeholder = "Enter a username"
