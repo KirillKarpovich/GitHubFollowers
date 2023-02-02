@@ -29,7 +29,8 @@ extension UIViewController {
         containerView.alpha = 0
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
-            containerView.alpha = 0.8 }
+            containerView.alpha = 0.8
+        }
        
         let activityIndicator = UIActivityIndicatorView(style: .large)
         containerView.addSubview(activityIndicator)
@@ -42,11 +43,16 @@ extension UIViewController {
         activityIndicator.startAnimating()
     }
     
-    
     func dismissLoadingView() {
         DispatchQueue.main.async {
             containerView.removeFromSuperview()
             containerView = nil
         }
+    }
+    
+    func showEmptyStateView(with message:String, in view:UIView) {
+        let emptyStateView = GHFEmptyStateView(message: message)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
     }
 }

@@ -25,7 +25,6 @@ class GHFTitileLabel: UILabel {
         configure()
     }
     
-    
     private func configure() {
         textColor = .label
         adjustsFontSizeToFitWidth = true

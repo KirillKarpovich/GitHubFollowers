@@ -24,7 +24,6 @@ class GHFBodyLabel: UILabel {
         configure()
     }
     
-    
     private func configure() {
         textColor = .label
         font = UIFont.preferredFont(forTextStyle: .body)
