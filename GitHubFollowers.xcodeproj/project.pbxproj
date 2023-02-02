@@ -32,6 +32,7 @@
 		68CE2284298BB9B700032CF4 /* GHFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2283298BB9B700032CF4 /* GHFUserInfoHeaderVC.swift */; };
 		68CE2286298BBBD800032CF4 /* GHFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2285298BBBD800032CF4 /* GHFSecondaryTitleLabel.swift */; };
 		68CE2289298BED0700032CF4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2288298BED0700032CF4 /* Constants.swift */; };
+		68CE228C298C2FE300032CF4 /* GHFItemInfoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE228B298C2FE300032CF4 /* GHFItemInfoVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		68CE2283298BB9B700032CF4 /* GHFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		68CE2285298BBBD800032CF4 /* GHFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		68CE2288298BED0700032CF4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		68CE228B298C2FE300032CF4 /* GHFItemInfoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFItemInfoVIew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +110,13 @@
 		680C495A29866DA5009238B8 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				68CE228A298C2FAA00032CF4 /* Views */,
 				680C4970298A9638009238B8 /* VIewControllers */,
 				680C496929881539009238B8 /* Cells */,
 				68CE2287298BBBE400032CF4 /* Labels */,
 				680C494E298445E9009238B8 /* GHFTextField.swift */,
 				680C494C29844025009238B8 /* GHFButton.swift */,
 				680C496C29881705009238B8 /* GHFAvatarImageView.swift */,
-				680C4971298A96AC009238B8 /* GHFEmptyStateView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -204,6 +206,15 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		68CE228A298C2FAA00032CF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				680C4971298A96AC009238B8 /* GHFEmptyStateView.swift */,
+				68CE228B298C2FE300032CF4 /* GHFItemInfoVIew.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,6 +296,7 @@
 				680C49352983FBDB009238B8 /* AppDelegate.swift in Sources */,
 				680C496B2988155F009238B8 /* FollowerCell.swift in Sources */,
 				680C49682987F882009238B8 /* GHFError.swift in Sources */,
+				68CE228C298C2FE300032CF4 /* GHFItemInfoVIew.swift in Sources */,
 				680C494D29844026009238B8 /* GHFButton.swift in Sources */,
 				680C4972298A96AC009238B8 /* GHFEmptyStateView.swift in Sources */,
 				680C496029868101009238B8 /* Follower.swift in Sources */,
