@@ -38,6 +38,7 @@
 		68CE2292298D398300032CF4 /* GHFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2291298D398300032CF4 /* GHFFollowerItemVC.swift */; };
 		68CE2295298D4A9600032CF4 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2294298D4A9600032CF4 /* Date+Ext.swift */; };
 		68CE2297298D4AD800032CF4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2296298D4AD800032CF4 /* String+Ext.swift */; };
+		68CE2299298E75A500032CF4 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2298298E75A500032CF4 /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		68CE2291298D398300032CF4 /* GHFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFFollowerItemVC.swift; sourceTree = "<group>"; };
 		68CE2294298D4A9600032CF4 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		68CE2296298D4AD800032CF4 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		68CE2298298E75A500032CF4 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				680C49642986AA90009238B8 /* NetworkManager.swift */,
+				68CE2298298E75A500032CF4 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				680C49372983FBDB009238B8 /* SceneDelegate.swift in Sources */,
 				680C496D29881705009238B8 /* GHFAvatarImageView.swift in Sources */,
 				68CE2295298D4A9600032CF4 /* Date+Ext.swift in Sources */,
+				68CE2299298E75A500032CF4 /* PersistenceManager.swift in Sources */,
 				680C49652986AA90009238B8 /* NetworkManager.swift in Sources */,
 				680C495529857E23009238B8 /* GHFBodyLabel.swift in Sources */,
 				680C494F298445EA009238B8 /* GHFTextField.swift in Sources */,
