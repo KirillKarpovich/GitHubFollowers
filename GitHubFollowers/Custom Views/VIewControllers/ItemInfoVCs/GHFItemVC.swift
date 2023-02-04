@@ -15,7 +15,7 @@ class GHFItemVC: UIViewController {
     let actionButton = GHFButton()
     
     var user: User
-    var delegate: UserInfoVCDelegate!
+    weak var delegate: UserInfoVCDelegate!
     
     init(user: User) {
         self.user = user
