@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import SafariServices
+
+
+protocol UserInfoVCDelegate: AnyObject {
+    func didTapGithubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
 
 class UserInfoVC: UIViewController {
     
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    let dateLabel = GHFBodyLabel(textAlignment: .center)
     
     var itemViews:[UIView] = []
     
@@ -41,13 +49,26 @@ class UserInfoVC: UIViewController {
             
             switch result {
             case .success(let user) :
-                DispatchQueue.main.async {
-                    self.add(childVC: GHFUserInfoHeaderVC(user: user), to: self.headerView)
-                }
+                DispatchQueue.main.async { self.configureUIElements(with: user) }
+           
             case .failure(let error):
                 self.presentGHFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
             }
         }
+    }
+    
+    func configureUIElements(with user: User) {
+       
+        let repoItemVC = GHFRepoItemVC(user: user)
+        repoItemVC.delegate = self
+        
+        let followerItemVC = GHFFollowerItemVC(user: user)
+        followerItemVC.delegate = self
+
+        self.add(childVC: GHFUserInfoHeaderVC(user: user), to: self.headerView)
+        self.add(childVC: repoItemVC, to: self.itemViewOne)
+        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        self.dateLabel.text = "Github since \(user.createdAt.convertToDisplayFormat())"
     }
     
     func add(childVC: UIViewController, to containerView: UIView) {
@@ -55,11 +76,10 @@ class UserInfoVC: UIViewController {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
-        
     }
     
     func layoutUI() {
-        itemViews = [headerView, itemViewOne, itemViewTwo]
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         let padding:CGFloat = 20
         let itemHeight:CGFloat = 140
@@ -82,7 +102,28 @@ class UserInfoVC: UIViewController {
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
             
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
-            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight)
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
+    }
+}
+
+extension UserInfoVC: UserInfoVCDelegate {
+    func didTapGithubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGHFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "OK")
+            return
+        }
+        
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
+    }
+    
+    
+    func didTapGetFollowers(for user: User) {
+         print("Updaiting followers list")
     }
 }

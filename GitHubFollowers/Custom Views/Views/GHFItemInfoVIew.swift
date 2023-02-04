@@ -58,7 +58,7 @@ class GHFItemInfoVIew: UIView {
 
     }
     
-    func set(itemInfoType: ItemInfoType, with count: Int) {
+    func set(itemInfoType: ItemInfoType, withCount: Int) {
        
         switch itemInfoType{
         case .repos:
@@ -74,6 +74,6 @@ class GHFItemInfoVIew: UIView {
             symbolImageView.image = UIImage(systemName: SFSymbols.following)
             titleLabel.text = "Following"
         }
-        countLabel.text = String(count)
+        countLabel.text = String(withCount)
     }
 }

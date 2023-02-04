@@ -33,6 +33,11 @@
 		68CE2286298BBBD800032CF4 /* GHFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2285298BBBD800032CF4 /* GHFSecondaryTitleLabel.swift */; };
 		68CE2289298BED0700032CF4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2288298BED0700032CF4 /* Constants.swift */; };
 		68CE228C298C2FE300032CF4 /* GHFItemInfoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE228B298C2FE300032CF4 /* GHFItemInfoVIew.swift */; };
+		68CE228E298CE96200032CF4 /* GHFItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE228D298CE96200032CF4 /* GHFItemVC.swift */; };
+		68CE2290298D35F400032CF4 /* GHFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE228F298D35F300032CF4 /* GHFRepoItemVC.swift */; };
+		68CE2292298D398300032CF4 /* GHFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2291298D398300032CF4 /* GHFFollowerItemVC.swift */; };
+		68CE2295298D4A9600032CF4 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2294298D4A9600032CF4 /* Date+Ext.swift */; };
+		68CE2297298D4AD800032CF4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE2296298D4AD800032CF4 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +69,11 @@
 		68CE2285298BBBD800032CF4 /* GHFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		68CE2288298BED0700032CF4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		68CE228B298C2FE300032CF4 /* GHFItemInfoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFItemInfoVIew.swift; sourceTree = "<group>"; };
+		68CE228D298CE96200032CF4 /* GHFItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFItemVC.swift; sourceTree = "<group>"; };
+		68CE228F298D35F300032CF4 /* GHFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFRepoItemVC.swift; sourceTree = "<group>"; };
+		68CE2291298D398300032CF4 /* GHFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFFollowerItemVC.swift; sourceTree = "<group>"; };
+		68CE2294298D4A9600032CF4 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		68CE2296298D4AD800032CF4 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				680C495829865D9F009238B8 /* UIViewController+Ext.swift */,
+				68CE2294298D4A9600032CF4 /* Date+Ext.swift */,
+				68CE2296298D4AD800032CF4 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +202,7 @@
 		680C4970298A9638009238B8 /* VIewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				68CE2293298D3A1D00032CF4 /* ItemInfoVCs */,
 				680C49562985819D009238B8 /* GHFAlertVC.swift */,
 				68CE2283298BB9B700032CF4 /* GHFUserInfoHeaderVC.swift */,
 			);
@@ -213,6 +226,16 @@
 				68CE228B298C2FE300032CF4 /* GHFItemInfoVIew.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		68CE2293298D3A1D00032CF4 /* ItemInfoVCs */ = {
+			isa = PBXGroup;
+			children = (
+				68CE228D298CE96200032CF4 /* GHFItemVC.swift */,
+				68CE228F298D35F300032CF4 /* GHFRepoItemVC.swift */,
+				68CE2291298D398300032CF4 /* GHFFollowerItemVC.swift */,
+			);
+			path = ItemInfoVCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +311,8 @@
 				680C49622986834E009238B8 /* User.swift in Sources */,
 				680C494B29840657009238B8 /* FavoriteListVC.swift in Sources */,
 				680C49572985819D009238B8 /* GHFAlertVC.swift in Sources */,
+				68CE2297298D4AD800032CF4 /* String+Ext.swift in Sources */,
+				68CE2290298D35F400032CF4 /* GHFRepoItemVC.swift in Sources */,
 				680C495129855FFE009238B8 /* FollowersListVC.swift in Sources */,
 				680C495929865D9F009238B8 /* UIViewController+Ext.swift in Sources */,
 				680C496F2989159F009238B8 /* UIHelper.swift in Sources */,
@@ -299,12 +324,15 @@
 				68CE228C298C2FE300032CF4 /* GHFItemInfoVIew.swift in Sources */,
 				680C494D29844026009238B8 /* GHFButton.swift in Sources */,
 				680C4972298A96AC009238B8 /* GHFEmptyStateView.swift in Sources */,
+				68CE2292298D398300032CF4 /* GHFFollowerItemVC.swift in Sources */,
 				680C496029868101009238B8 /* Follower.swift in Sources */,
 				680C49372983FBDB009238B8 /* SceneDelegate.swift in Sources */,
 				680C496D29881705009238B8 /* GHFAvatarImageView.swift in Sources */,
+				68CE2295298D4A9600032CF4 /* Date+Ext.swift in Sources */,
 				680C49652986AA90009238B8 /* NetworkManager.swift in Sources */,
 				680C495529857E23009238B8 /* GHFBodyLabel.swift in Sources */,
 				680C494F298445EA009238B8 /* GHFTextField.swift in Sources */,
+				68CE228E298CE96200032CF4 /* GHFItemVC.swift in Sources */,
 				68CE2286298BBBD800032CF4 /* GHFSecondaryTitleLabel.swift in Sources */,
 				68CE2284298BB9B700032CF4 /* GHFUserInfoHeaderVC.swift in Sources */,
 				680C4953298578A2009238B8 /* GHFTitileLabel.swift in Sources */,
