@@ -9,7 +9,7 @@ import UIKit
 
 class GHFAlertVC: UIViewController {
     
-    let containerView = UIView()
+    let containerView = GHFAlertContainerView()
     let titleLabel = GHFTitileLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GHFBodyLabel(textAlignment: .center)
     let actionButton = GHFButton(backgroundColor: .systemPink, title: "OK")
@@ -19,40 +19,31 @@ class GHFAlertVC: UIViewController {
     var buttonTitle: String?
     
     let padding: CGFloat = 20
+  
     
-     
     init(alertTitle: String? = nil, message: String? = nil, buttonTitle: String? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.alertTitle = alertTitle
         self.message = message
         self.buttonTitle = buttonTitle
     }
-    
-    
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
         configureBodylabel()
-        
     }
     
-
     func configureContainerView() {
         view.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = .systemBackground
-        containerView.layer.borderWidth = 2
-        containerView.layer.cornerRadius = 16
-        containerView.layer.borderColor = UIColor.white.cgColor
         
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -61,7 +52,6 @@ class GHFAlertVC: UIViewController {
             containerView.heightAnchor.constraint(equalToConstant: 220)
         ])
     }
-    
     
     func configureTitleLabel() {
         containerView.addSubview(titleLabel)
@@ -74,8 +64,7 @@ class GHFAlertVC: UIViewController {
             titleLabel.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
-    
-    
+        
     func configureActionButton() {
         containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "OK", for: .normal)
@@ -88,7 +77,6 @@ class GHFAlertVC: UIViewController {
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-    
     
     func configureBodylabel() {
         containerView.addSubview(messageLabel)
@@ -103,9 +91,7 @@ class GHFAlertVC: UIViewController {
         ])
     }
     
-    
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-
 }
