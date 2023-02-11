@@ -9,7 +9,7 @@ import UIKit
 
 class GHFAvatarImageView: UIImageView {
     
-    let placeholderImage = UIImage(named: "avatar-placeholder")
+    let placeholderImage = Images.placeholder
     let cache = NetworkManager.shared.cache
         
     override init(frame: CGRect) {
@@ -26,5 +26,11 @@ class GHFAvatarImageView: UIImageView {
         clipsToBounds = true
         image = placeholderImage
         translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func downloadImage(fromURL url: String) {
+        NetworkManager.shared.downloadImage(from: url) { [weak self] image in
+            DispatchQueue.main.async { self?.image = image }
+        }
     }
 }

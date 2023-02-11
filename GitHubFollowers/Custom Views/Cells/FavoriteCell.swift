@@ -9,7 +9,7 @@ import UIKit
 
 class FavoriteCell: UITableViewCell {
 
-    static let reuseID = "FavoriteCell"
+    static let reuseID = String(describing: FavoriteCell.self)
     
     let avatarImageView = GHFAvatarImageView(frame: .zero)
     let usernameLabel = GHFTitileLabel(textAlignment: .left, fontSize: 26)
@@ -25,29 +25,23 @@ class FavoriteCell: UITableViewCell {
     
     func set(favorite: Follower) {
         usernameLabel.text = favorite.login
-        NetworkManager.shared.downloadImage(from: favorite.avatarUrl) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.avatarImageView.image = image }
-        }
+        avatarImageView.downloadImage(fromURL: favorite.avatarUrl)
     }
     
     private func configure() {
-        addSubview(avatarImageView)
-        addSubview(usernameLabel)
-        
+        addSubviews(avatarImageView, usernameLabel)
         accessoryType = .disclosureIndicator
-       
         let padding: CGFloat = 12
         
         NSLayoutConstraint.activate([
-            avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            avatarImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            avatarImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 60),
             avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor),
             
-            usernameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            usernameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 24),
-            usernameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            usernameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             usernameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }

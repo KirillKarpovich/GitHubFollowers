@@ -9,8 +9,12 @@ import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let baseURL = "https://api.github.com/users/"
+    
     let cache = NSCache<NSString, UIImage>()
+    
+    private let baseURL = "https://api.github.com/users/"
+    private let decoder = JSONDecoder()
+    private let session = URLSession.shared
     
     private init() {}
     
@@ -21,9 +25,9 @@ class NetworkManager {
             completion(.failure(.invalidUsername))
             return
         }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
+
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            guard let self else { return }
             if let _ = error {
                 completion(.failure(.unableToComplete))
                 return
@@ -40,9 +44,8 @@ class NetworkManager {
             }
             
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let followers = try decoder.decode([Follower].self, from: data)
+                self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let followers = try self.decoder.decode([Follower].self, from: data)
                 completion(.success(followers))
             } catch {
                 completion(.failure(.invalidData))
@@ -60,8 +63,9 @@ class NetworkManager {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            guard let self else { return }
+
             if let _ = error {
                 completed(.failure(.unableToComplete))
                 return
@@ -78,10 +82,9 @@ class NetworkManager {
             }
             
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                decoder.dateDecodingStrategy = .iso8601
-                let user = try decoder.decode(User.self, from: data)
+                self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+                self.decoder.dateDecodingStrategy = .iso8601
+                let user = try self.decoder.decode(User.self, from: data)
                 completed(.success(user))
             } catch {
                 completed(.failure(.invalidData))
@@ -92,7 +95,6 @@ class NetworkManager {
     }
     
     func downloadImage(from urlString: String, completed: @escaping(UIImage?) -> Void) {
-        
         let cacheKey = NSString(string: urlString)
         
         if let image = cache.object(forKey: cacheKey) {
@@ -104,7 +106,7 @@ class NetworkManager {
             completed(nil)
             return
         }
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
             guard let self = self,
                   error == nil,
                   let response = response as? HTTPURLResponse, response.statusCode == 200,

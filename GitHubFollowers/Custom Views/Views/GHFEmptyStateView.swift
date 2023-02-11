@@ -27,8 +27,7 @@ class GHFEmptyStateView: UIView {
     }
     
     private func configure() {
-        addSubview(titleLabel)
-        addSubview(logoImageView)
+        addSubviews(titleLabel, logoImageView)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +35,7 @@ class GHFEmptyStateView: UIView {
         titleLabel.numberOfLines = 3
         titleLabel.textColor = .secondaryLabel
         
-        logoImageView.image = UIImage(named: "empty-state-logo")
+        logoImageView.image = Images.emptyStateLogo
         
         NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
@@ -48,7 +47,6 @@ class GHFEmptyStateView: UIView {
             logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
             logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40),
-
         ])
     }
 }

@@ -18,7 +18,7 @@ class GHFAlertContainerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(){
+    private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemBackground
         layer.borderWidth = 2

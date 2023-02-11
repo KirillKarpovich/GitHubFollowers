@@ -18,7 +18,6 @@ class GHFTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 10
@@ -40,5 +39,4 @@ class GHFTextField: UITextField {
         clearButtonMode = .whileEditing
         placeholder = "Enter a username"
     }
-    
 }

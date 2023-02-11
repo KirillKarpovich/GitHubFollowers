@@ -9,16 +9,16 @@ import UIKit
 
 class GHFDataLoadingVC: UIViewController {
     
-    var containerView: UIView!
+    private let containerView: UIView = UIView()
     
     func showLoadingView() {
-        containerView = UIView(frame: view.bounds)
+        containerView.frame = view.bounds
         view.addSubview(containerView)
         
         containerView.backgroundColor = .systemBackground
         containerView.alpha = 0
         
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
+        UIView.animate(withDuration: 0.25, delay: .zero, options: .curveEaseOut) {
             self.containerView.alpha = 0.8
         }
        
@@ -36,7 +36,6 @@ class GHFDataLoadingVC: UIViewController {
     func dismissLoadingView() {
         DispatchQueue.main.async {
             self.containerView.removeFromSuperview()
-            self.containerView = nil
         }
     }
     
@@ -45,5 +44,4 @@ class GHFDataLoadingVC: UIViewController {
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
     }
-
 }

@@ -5,25 +5,33 @@
 //  Created by Kirill Karpovich on 1.02.23.
 //
 
-import UIKit    
+import UIKit
 
 protocol UserInfoVCDelegate: AnyObject {
-    func didTapGithubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
+    func didRequestFollowers(for username: String)
 }
 
 class UserInfoVC: UIViewController {
     
-    let headerView = UIView()
-    let itemViewOne = UIView()
-    let itemViewTwo = UIView()
-    let dateLabel = GHFBodyLabel(textAlignment: .center)
+    private let headerView = UIView()
+    private let itemViewOne = UIView()
+    private let itemViewTwo = UIView()
+    private let dateLabel = GHFBodyLabel(textAlignment: .center)
     
-    var itemViews:[UIView] = []
+    private var itemViews: [UIView] = []
     
-    var username: String!
+    private let username: String
     
-    weak var delegate: FollowerListVCDelegate!
+    init(username: String) {
+        self.username = username
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    weak var delegate: UserInfoVCDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +51,7 @@ class UserInfoVC: UIViewController {
         dismiss(animated: true)
     }
     
-    func getUserInfo(){
+    func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
             guard let self = self else { return }
             
@@ -96,7 +104,7 @@ class UserInfoVC: UIViewController {
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180),
+            headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
@@ -110,7 +118,7 @@ class UserInfoVC: UIViewController {
     }
 }
 
-extension UserInfoVC: UserInfoVCDelegate {
+extension UserInfoVC: ItemInfoVCDelegate {
     func didTapGithubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGHFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "OK")

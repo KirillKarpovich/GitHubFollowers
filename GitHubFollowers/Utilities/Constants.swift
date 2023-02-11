@@ -8,15 +8,17 @@
 import UIKit
 
 enum SFSymbols {
-    static let location = "mappin.and.ellipse"
-    static let repos = "folder"
-    static let gists = "text.alignleft"
-    static let followers = "heart"
-    static let following = "person.2"
+    static let location = UIImage(systemName: "mappin.and.ellipse")
+    static let repos = UIImage(systemName: "folder")
+    static let gists = UIImage(systemName: "text.alignleft")
+    static let followers = UIImage(systemName: "heart")
+    static let following = UIImage(systemName: "person.2")
 }
 
 enum Images {
-        static let ghLogo = UIImage(named: "gh-logo")
+    static let ghLogo = UIImage(named: "gh-logo")
+    static let placeholder = UIImage(named: "avatar-placeholder")
+    static let emptyStateLogo = UIImage(named: "empty-state-logo")
 }
 
 enum ScreenSize {
@@ -25,7 +27,6 @@ enum ScreenSize {
     static let maxLength    = max(ScreenSize.width, ScreenSize.height)
     static let minLength    = min(ScreenSize.width, ScreenSize.height)
 }
-
 
 enum DeviceTypes {
     static let idiom                    = UIDevice.current.userInterfaceIdiom
@@ -47,8 +48,7 @@ enum DeviceTypes {
     static let isiPhone12Pro            = idiom == .phone && ScreenSize.maxLength == 1170.0 && nativeScale == 2.0
     static let isiPhone12ProMax         = idiom == .phone && ScreenSize.maxLength == 1284.0 && nativeScale == 2.0
     static let isiPad                   = idiom == .pad && ScreenSize.maxLength >= 1024.0
-    
-
+     
     static func isiPhoneXAspectRatio() -> Bool {
         return isiPhoneX || isiPhoneXsMaxAndXr
     }

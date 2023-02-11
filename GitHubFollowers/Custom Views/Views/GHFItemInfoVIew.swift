@@ -7,13 +7,10 @@
 
 import UIKit
 
-enum ItemInfoType {
-    case repos, gists, followers, following
-}
-
+enum ItemInfoType { case repos, gists, followers, following }
 
 class GHFItemInfoVIew: UIView {
-
+    
     let symbolImageView = UIImageView()
     let titleLabel = GHFTitileLabel(textAlignment: .left, fontSize: 14)
     let countLabel = GHFTitileLabel(textAlignment: .center, fontSize: 14)
@@ -28,10 +25,8 @@ class GHFItemInfoVIew: UIView {
     }
     
     private func configure() {
-        addSubview(symbolImageView)
-        addSubview(titleLabel)
-        addSubview(countLabel)
-
+        addSubviews(symbolImageView, titleLabel, countLabel)
+        
         symbolImageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         countLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -40,38 +35,36 @@ class GHFItemInfoVIew: UIView {
         symbolImageView.tintColor = .label
         
         NSLayoutConstraint.activate([
-            symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            symbolImageView.topAnchor.constraint(equalTo: topAnchor),
+            symbolImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             symbolImageView.widthAnchor.constraint(equalToConstant: 20),
             symbolImageView.heightAnchor.constraint(equalToConstant: 20),
             
             titleLabel.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 18),
             
             countLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor, constant: 4),
-            countLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            countLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            countLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             countLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
-
     }
     
     func set(itemInfoType: ItemInfoType, withCount: Int) {
-       
+        
         switch itemInfoType{
         case .repos:
-            symbolImageView.image = UIImage(systemName: SFSymbols.repos)
+            symbolImageView.image = SFSymbols.repos
             titleLabel.text = "Public repos"
         case .gists:
-            symbolImageView.image = UIImage(systemName: SFSymbols.gists)
+            symbolImageView.image = SFSymbols.gists
             titleLabel.text = "Public gists"
         case .followers:
-            symbolImageView.image = UIImage(systemName: SFSymbols.followers)
+            symbolImageView.image = SFSymbols.followers
             titleLabel.text = "Followers"
         case .following:
-            symbolImageView.image = UIImage(systemName: SFSymbols.following)
+            symbolImageView.image = SFSymbols.following
             titleLabel.text = "Following"
         }
         countLabel.text = String(withCount)

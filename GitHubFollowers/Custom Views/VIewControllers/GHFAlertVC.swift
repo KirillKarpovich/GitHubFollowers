@@ -12,7 +12,7 @@ class GHFAlertVC: UIViewController {
     let containerView = GHFAlertContainerView()
     let titleLabel = GHFTitileLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GHFBodyLabel(textAlignment: .center)
-    let actionButton = GHFButton(backgroundColor: .systemPink, title: "OK")
+    let actionButton = GHFButton(color: .systemPink, title: "OK", systemImageName: "checkmark")
     
     var alertTitle: String?
     var message: String?
@@ -35,7 +35,8 @@ class GHFAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        view.backgroundColor = .black.withAlphaComponent(0.75)
+        view.addSubviews(containerView, titleLabel, actionButton, messageLabel)
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -43,7 +44,6 @@ class GHFAlertVC: UIViewController {
     }
     
     func configureContainerView() {
-        view.addSubview(containerView)
         
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -54,7 +54,6 @@ class GHFAlertVC: UIViewController {
     }
     
     func configureTitleLabel() {
-        containerView.addSubview(titleLabel)
         titleLabel.text = alertTitle ?? "Something went wrong"
         
         NSLayoutConstraint.activate([
@@ -66,7 +65,6 @@ class GHFAlertVC: UIViewController {
     }
         
     func configureActionButton() {
-        containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "OK", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
@@ -79,7 +77,6 @@ class GHFAlertVC: UIViewController {
     }
     
     func configureBodylabel() {
-        containerView.addSubview(messageLabel)
         messageLabel.text = message ?? "Unable to complete request"
         messageLabel.numberOfLines = 4
         

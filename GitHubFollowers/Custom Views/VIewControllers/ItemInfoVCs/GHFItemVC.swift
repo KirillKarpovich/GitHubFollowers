@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ItemInfoVCDelegate: AnyObject {
+    func didTapGithubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
+
 class GHFItemVC: UIViewController {
     
     let stackView = UIStackView()
@@ -15,7 +20,7 @@ class GHFItemVC: UIViewController {
     let actionButton = GHFButton()
     
     var user: User
-    weak var delegate: UserInfoVCDelegate!
+    weak var delegate: ItemInfoVCDelegate!
     
     init(user: User) {
         self.user = user
@@ -54,13 +59,12 @@ class GHFItemVC: UIViewController {
     @objc func actionButtonTapped() {}
 
     private func layoutUI() {
-        view.addSubview(stackView)
-        view.addSubview(actionButton)
+        view.addSubviews(stackView, actionButton)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
-        let padding:CGFloat = 20
+        let padding: CGFloat = 20
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),

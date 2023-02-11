@@ -7,8 +7,7 @@
 
 import UIKit
 
-class GHFRepoItemVC: GHFItemVC {
-    
+class GHFRepoItemVC: GHFItemVC {    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +18,10 @@ class GHFRepoItemVC: GHFItemVC {
     private func configureItems() {
         itemInfoViewOne.set(itemInfoType: .repos, withCount: user.publicRepos)
         itemInfoViewTwo.set(itemInfoType: .gists, withCount: user.publicGists)
-        actionButton.set(backgroundColor: .systemPurple, title: "Github profile")
+        actionButton.set(color: .systemPurple, title: "Github profile", systemImageName: "person")
     }
     
     override func actionButtonTapped() {
         delegate.didTapGithubProfile(for: user)
     }
-    
 }

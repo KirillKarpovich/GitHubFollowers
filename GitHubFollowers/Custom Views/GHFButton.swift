@@ -18,23 +18,26 @@ class GHFButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(backgroundColor: UIColor, title: String) {
+    convenience init(color: UIColor, title: String, systemImageName: String) {
         self.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+        set(color: color, title: title, systemImageName: systemImageName)
     }
-    
-    
+        
     private func configure() {
+        configuration = .filled()
+        configuration?.cornerStyle = .medium
         translatesAutoresizingMaskIntoConstraints = false
-        layer.cornerRadius = 10
-        setTitleColor(.white, for: .normal)
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+
     }
     
-    func set(backgroundColor: UIColor, title: String) {
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+    func set(color: UIColor, title: String, systemImageName: String) {
+        
+        configuration?.baseBackgroundColor = color
+        configuration?.baseForegroundColor = .white
+        configuration?.title = title
+        configuration?.attributedTitle?.font = .systemFont(ofSize: 17, weight: .bold)
+        configuration?.image = UIImage(systemName: systemImageName)
+        configuration?.imagePadding = 6
+        configuration?.imagePlacement = .leading
     }
-    
 }
