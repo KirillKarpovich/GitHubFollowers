@@ -3,8 +3,8 @@
 ![Xcode Version](https://img.shields.io/badge/Xcode-12.3-lightgrey.svg)
 ![iOS Version](https://img.shields.io/badge/iOS-14.2%2B-brightgreen.svg)
 
-![ScreenShot (1)](https://user-images.githubusercontent.com/120652830/224259689-fb116767-51b2-4f90-9fcc-85d87aef44bd.jpeg)
- 
+![course-screens](https://user-images.githubusercontent.com/120652830/224260424-76daf4f2-32ec-427e-9be6-c9d8b585f1dc.png)
+
  A Take Home Project from [Sean Allen's course](https://seanallen.teachable.com/p/take-home). An app that search user's follower, add to favorites, and can see user's info.
 
 ## What I used in this project
