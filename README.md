@@ -10,7 +10,7 @@
 ## What I used in this project
 * No storyboard, 100% Programmatic UI
 * No third party libraries
-* Scene Delegate (New in iOS 13)
+* Scene Delegate 
 * Dark Mode
 * Custom Alerts
 * [SFSymbols](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/overview/)
