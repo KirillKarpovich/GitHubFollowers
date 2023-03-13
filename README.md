@@ -5,7 +5,7 @@
 
 ![course-screens](https://user-images.githubusercontent.com/120652830/224260424-76daf4f2-32ec-427e-9be6-c9d8b585f1dc.png)
 
- A Take Home Project from [Sean Allen's course](https://seanallen.teachable.com/p/take-home). An app that search user's follower, add to favorites, and can see user's info.
+ A Take Home Project from [Sean Allen's course](https://seanallen.teachable.com/p/take-home). An app that search user's follower, add to favorites, and can see user's info. I liked so much Sean's style and his ability to explain!  
 
 ## What I used in this project
 * No storyboard, 100% Programmatic UI
