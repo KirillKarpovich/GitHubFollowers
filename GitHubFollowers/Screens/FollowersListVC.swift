@@ -69,6 +69,7 @@ class FollowersListVC: GHFDataLoadingVC {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search a username"
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func getFollowers(username: String, page: Int) {

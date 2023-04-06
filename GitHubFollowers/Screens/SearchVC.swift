@@ -29,6 +29,7 @@ class SearchVC: UIViewController {
         super.viewWillAppear(animated)
         usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
+    
     }
     
     func createDismissKeyboardTabGesture() {
